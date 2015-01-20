@@ -1,0 +1,26 @@
+
+<div class="modal-header">
+  <h3 class="modal-title">Detalle solicitud vacaciones</h3>
+</div>
+<div class="modal-body row">
+  <form novalidate="novalidate">
+    <div class="container">
+      <div class="form-group">
+        <label class="col-md-2">Fecha de Inicio:</label><span>{{vacationRequest.beginDate | date: 'fullDate'}}</span>
+      </div>
+      <div class="form-group">
+        <label class="col-md-2">Fecha de Finalización:</label><span>{{vacationRequest.endDate | date: 'fullDate'}}</span>
+      </div>
+      <div class="form-group">
+        <label class="col-md-2">Últimas vacaciones:</label><span>{{vacationRequest.lastVacationOn | date: 'fullDate'}}</span>
+      </div>
+      <div class="form-group">
+        <label class="col-md-2">Número de días hábiles pedido:</label><span>{{numberOfDays}}</span>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button ng-click="ok()" class="btn btn-success">Ok</button>
+  <button ng-click="close()" class="btn btn-default">Close</button>
+</div>

@@ -1,0 +1,78 @@
+
+<header ng-controller="LoginCtrl">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header"><a class="navbar-brand">Workportal Bizagi</a></div>
+      <div class="navbar-collapse collapse">
+        <div class="nav navbar-right">
+          <button ng-click="logout()" class="btn btn-default navbar-btn btn-special">Logout</button>
+          <p class="navbar-text">Signed in as Admin</p>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div ng-controller="HomeCtrl" class="container">
+  <h3>Proceso de solicitud de vacaciones</h3>
+  <p>
+    Bienvenido a continuación podrá hacer seguimiento al proceso de
+    vacaciones. Encontrará una lista con cada uno de los solicitantes
+    de las vacaciones. Usted podrá aceptar o rechazar solicitudes
+  </p>
+  <div class="col-md-8 col-centered">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Id actividad</th>
+          <th>Nombre de quién solicita</th>
+          <th>Días solicitados</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="vacationRequest in vacationRequests">
+          <td>{{ $index + 1 }}</td>
+          <td>{{ vacationRequest.employee }}</td>
+          <td>{{ vacationRequest.numberOfDays }}</td>
+          <td>En espera de aceptación</td>
+          <td>
+            <button ng-click="openVacationDetailModal(vacationRequest)" class="btn btn-info btn-sm btn-block">Ver detalle</button>
+          </td>
+          <td class="action"><a popover-placement="top" popover="Aceptar vacaciones!" popover-trigger="mouseenter" ng-click="acceptVacations(vacationRequest, $index)" class="accept"><i class="fa fa-check-circle fa-2x color-green"></i></a></td>
+          <td class="action"><a popover-placement="top" popover="Rechazar vacaciones!" popover-trigger="mouseenter" ng-click="rejectVacations(vacationRequest, $index)" class="reject"><i class="fa fa-times-circle fa-2x color-red"></i></a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div id="alert-1" flash-alert="" active-class="in" class="alert fade"><span class="alert-message">{{flash.message}}</span></div>
+</div>
+<footer class="footer top-space">
+  <div class="footer1">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 widget">
+          <h3 class="widget-title">Support</h3>
+          <div class="widget-body">
+            <p>(+57)   3108187426</p><br/><a href="mailto:#">ftrianakast@gmail.com</a><br/>Calle 6B No 9-26, Madrid Cundinamarca, Colombia
+          </div>
+        </div>
+        <div class="col-md-3 widget">
+          <h3 class="widget-title">Contact me</h3>
+          <div class="widget-body">
+            <p class="follow-me-icons"><a href="https://twitter.com/ftrianakast"><i class="fa fa-twitter fa-2"></i></a><a href="https://github.com/ftrianakast"><i class="fa fa-github fa-2"></i></a></p>
+          </div>
+        </div>
+        <div class="col-md-6 widget">
+          <h3 class="widget-title">Text widget</h3>
+          <div class="widget-body">
+            <p>
+              Prueba para demostrar actitudes Front-End para Vision Software.
+              Esta es una versión de prueba que podrá ser utilizada como guía para
+              futuros proyectos
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

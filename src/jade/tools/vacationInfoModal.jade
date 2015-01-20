@@ -1,0 +1,24 @@
+div.modal-header
+  h3.modal-title Detalle solicitud vacaciones
+div.modal-body.row
+  form(novalidate)
+    .container
+      div.form-group
+          label.col-md-2 Fecha de Inicio:
+          span {{vacationRequest.beginDate | date: 'fullDate'}}
+      div.form-group
+          label.col-md-2 Fecha de Finalización:
+          span {{vacationRequest.endDate | date: 'fullDate'}}
+      div.form-group
+          label.col-md-2 Últimas vacaciones:
+          span {{vacationRequest.lastVacationOn | date: 'fullDate'}}
+
+      div.form-group
+          label.col-md-2 Número de días hábiles pedido:
+          span {{numberOfDays}}
+
+
+
+div.modal-footer
+  button.btn.btn-success(ng-click="ok()") Ok
+  button.btn.btn-default(ng-click="close()") Close
